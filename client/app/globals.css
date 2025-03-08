@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 66, 67, 68; /* Slightly darker grey for better contrast */
+  --background-start-rgb: 255, 255, 204; /* Light yellow */
+  --background-end-rgb: 255, 255, 153; /* Slightly darker yellow */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 224, 224, 224; /* Light grey for better contrast */
+    --background-start-rgb: 51, 51, 51; /* Dark grey */
+    --background-end-rgb: 18, 18, 18; /* Even darker grey */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Apply Tailwind CSS utility classes for background and text colors */
+body {
+  @apply bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text;
+}
+
+/* Apply Tailwind CSS utility classes for primary and secondary button colors */
+button.primary {
+  @apply bg-light-primary text-light-background dark:bg-dark-primary dark:text-dark-background;
+}
+
+button.secondary {
+  @apply bg-light-secondary text-light-background dark:bg-dark-secondary dark:text-dark-background;
+}
+
+/* Apply Tailwind CSS utility classes for link colors */
+a {
+  @apply text-light-accent-darkGrey dark:text-dark-accent-lightGrey;
+}
+
+/* Apply Tailwind CSS utility classes for highlighted text */
+.highlight {
+  @apply text-light-accent-grey dark:text-dark-accent-darkHighlight;
+}
+
+/* Customize scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffcc; /* Light yellow */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #666600; /* Dark yellow */
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Animation for hero element */
+.hero_animation {
+  background-image: linear-gradient(
+    147.92deg,
+    hsla(60, 100%, 94.1%, 0.456) 10.41%, /* Light yellow gradient */
+    hsla(60, 100%, 91.2%, 0.89) 89.25% /* Slightly darker yellow gradient */
+  );
+  animation: changeBackgroundColor 8s infinite alternate;
+}
+
+/* Keyframes for background color change animation */
+@keyframes changeBackgroundColor {
+  0%, 100% {
+    opacity: 1;
+  }
+  16.67% {
+    opacity: 0.9;
+  }
+  33.33% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  66.67% {
+    opacity: 0.5;
+  }
+  83.33% {
+    opacity: 0.4;
+  }
+}
+
+/* Animation for shaking effect */
+.shake {
+  animation: shake 0.5s ease-in-out;
+  color: red;
+}

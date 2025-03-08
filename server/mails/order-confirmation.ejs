@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .order-details {
+            margin-bottom: 20px;
+        }
+        .order-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-details td {
+            text-align: left;
+            padding: 10px;
+        }
+        .order-details td:first-child {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .order-summary {
+            margin-top: 20px;
+        }
+        .order-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-summary th, .order-summary td {
+            text-align: left;
+            padding: 10px;
+        }
+        .order-summary th {
+            background-color: #f2f2f2;
+        }
+        .order-summary .total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Thank You for Your Order!</h1>
+        </div>
+        <div class="order-details">
+            <h2>We're excited to have you on board!</h2>
+            <p>Dear <strong><%= customerName %></strong>,</p>
+            <p>Thank you for purchasing our course "<strong><%= order.name %></strong>". We are thrilled to help you on your learning journey and can't wait to see you achieve your goals.</p>
+            <p>Here are your order details:</p>
+            <table>
+                <tr>
+                    <td><strong>Order ID:</strong><%= order._id %></td>
+                    <td><strong>Order Date:</strong><%= order.date %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="order-summary">
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                </tr>
+                <tr>
+                    <td><%= order.name %></td>
+                    <td>1</td>
+                    <td>$<%= order.price %></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><hr></td>
+                </tr>
+                <tr>
+                    <td>Subtotal</td>
+                    <td></td>
+                    <td>$<%= order.price %></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td>$<%= order.price %></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <p>We hope you enjoy your learning experience. If you have any questions or need assistance, please don't hesitate to contact us at <strong>support@yourwebsite.com</strong>.</p>
+            <p>Best regards,</p>
+            <p>The <strong>Your Company</strong> Team</p>
+        </div>
+    </div>
+</body>
+</html>
